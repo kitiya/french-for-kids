@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/french-for-kids/static/css/main.685dea8f.chunk.css",
-    "main.js": "/french-for-kids/static/js/main.9d91d40d.chunk.js",
-    "main.js.map": "/french-for-kids/static/js/main.9d91d40d.chunk.js.map",
+    "main.js": "/french-for-kids/static/js/main.7730b6b9.chunk.js",
+    "main.js.map": "/french-for-kids/static/js/main.7730b6b9.chunk.js.map",
     "runtime-main.js": "/french-for-kids/static/js/runtime-main.aef90760.js",
     "runtime-main.js.map": "/french-for-kids/static/js/runtime-main.aef90760.js.map",
-    "static/js/2.6f1bb2f8.chunk.js": "/french-for-kids/static/js/2.6f1bb2f8.chunk.js",
-    "static/js/2.6f1bb2f8.chunk.js.map": "/french-for-kids/static/js/2.6f1bb2f8.chunk.js.map",
+    "static/js/2.7bdf0d5a.chunk.js": "/french-for-kids/static/js/2.7bdf0d5a.chunk.js",
+    "static/js/2.7bdf0d5a.chunk.js.map": "/french-for-kids/static/js/2.7bdf0d5a.chunk.js.map",
     "index.html": "/french-for-kids/index.html",
-    "precache-manifest.c4f6f0abbc74e6cf7973610054788f33.js": "/french-for-kids/precache-manifest.c4f6f0abbc74e6cf7973610054788f33.js",
+    "precache-manifest.26b53982bf3e15bcaa9012d484a1f5c0.js": "/french-for-kids/precache-manifest.26b53982bf3e15bcaa9012d484a1f5c0.js",
     "service-worker.js": "/french-for-kids/service-worker.js",
     "static/css/main.685dea8f.chunk.css.map": "/french-for-kids/static/css/main.685dea8f.chunk.css.map",
-    "static/js/2.6f1bb2f8.chunk.js.LICENSE.txt": "/french-for-kids/static/js/2.6f1bb2f8.chunk.js.LICENSE.txt"
+    "static/js/2.7bdf0d5a.chunk.js.LICENSE.txt": "/french-for-kids/static/js/2.7bdf0d5a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.aef90760.js",
-    "static/js/2.6f1bb2f8.chunk.js",
+    "static/js/2.7bdf0d5a.chunk.js",
     "static/css/main.685dea8f.chunk.css",
-    "static/js/main.9d91d40d.chunk.js"
+    "static/js/main.7730b6b9.chunk.js"
   ]
 }
