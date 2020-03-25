@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Box from "@material-ui/core/Box";
 
 import VocabCard from "./VocabCard";
 
@@ -26,8 +27,8 @@ const useStyles = makeStyles(theme => ({
   categoryText: {
     textTransform: "capitalize",
     color: "#fff",
-    backgroundImage: "linear-gradient(to right, #0F2027, #203A43, #2C5364);",
-    backgroundImage: "linear-gradient(to right, #314755,#1765A3);",
+    // backgroundImage: "linear-gradient(to right, #0F2027, #203A43, #2C5364);",
+    backgroundImage: "linear-gradient(to right, #6c63ff, #847dff);",
 
     marginTop: 10,
     padding: 8
@@ -36,12 +37,18 @@ const useStyles = makeStyles(theme => ({
     marginTop: 2,
     padding: 0,
     background: "#EEF1F4"
+  },
+  welcomeImageWrapper: {
+    textAlign: "center"
+  },
+  welcomeImage: {
+    maxWidth: 600
   }
 }));
 
 export default ({ category, vocabs, vocab, onVocabSelect }) => {
   const classes = useStyles();
-  console.log("vocab", vocab);
+
   return (
     <Grid container>
       <Grid item xs={12} sm md={3} className={classes.gridItem}>
@@ -75,7 +82,19 @@ export default ({ category, vocabs, vocab, onVocabSelect }) => {
           {vocab.id ? (
             <VocabCard vocab={vocab} />
           ) : (
-            <Typography>Welcome</Typography>
+            <Box className={classes.welcomeImageWrapper}>
+              <img
+                className={classes.welcomeImage}
+                alt="welcome"
+                src={`${process.env.PUBLIC_URL}/images/svg/happy_music.svg`}
+              />
+              <Typography variant="h3" gutterBottom>
+                Welcome
+              </Typography>
+              <Typography variant="h5">
+                Please select a vocabulary from the list on the left.
+              </Typography>
+            </Box>
           )}
         </Paper>
       </Grid>

@@ -15,16 +15,16 @@ const useStyles = makeStyles({
     height: 200
   },
   enText: {
-    color: "#2196f3"
+    color: "#6C63FF"
   },
   frText: {
-    color: "#f44336"
+    color: "#FF6584"
   }
 });
 
 export default function VocabCard({ vocab }) {
   const classes = useStyles();
-  console.log(vocab);
+
   return (
     <Card className={classes.root}>
       <CardActionArea>

@@ -6,15 +6,12 @@ import CategoryMenu from "./Components/CategoryMenu";
 import Vocabs from "./Components/Vocabs";
 import { categoryDB, vocabDB } from "./store";
 
-// French nuances - https://coolors.co/app/247ba0-70c1b3-b2dbbf-f3ffbd-ff1654
-// French revolution - https://coolors.co/app/e63946-f1faee-a8dadc-457b9d-1d3557
-// French for kids3 - https://coolors.co/1c2541-456990-70c1b3-f1faee-ed6a5a
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#2196f3" },
-    secondary: { main: "#f44336" },
-    info: { main: "#456990" },
-    success: { main: "#70c1b3" }
+    primary: { main: "#3F3D56" },
+    secondary: { main: "#ff6584" },
+    info: { main: "#6C63FF" },
+    success: { main: "#1765A3" }
   }
 });
 
@@ -42,28 +39,34 @@ function App() {
     getVocabsByCategories();
   }, []);
 
-  const handleCategorySelected = category => {
+  const handleCategorySelect = category => {
     setCategory(category);
   };
 
-  const handleVocabSelected = id => {
+  const handleVocabSelect = id => {
     setVocab(vocabDB.find(v => v.id === id));
+  };
+
+  const handleVocabCreate = vocab => {
+    const newVocabs = [...vocabs, vocab];
+    console.log(newVocabs);
+    // setVocabs([...vocabs, vocab]);
   };
 
   return (
     <MuiThemeProvider theme={theme}>
       <div>
-        <Header />
+        <Header categories={categoryDB} onVocabCreate={handleVocabCreate} />
         <CategoryMenu
           categories={categoryDB}
           category={category}
-          onSelect={handleCategorySelected}
+          onSelect={handleCategorySelect}
         />
         <Vocabs
           category={category}
           vocabs={vocabs}
           vocab={vocab}
-          onVocabSelect={handleVocabSelected}
+          onVocabSelect={handleVocabSelect}
         />
         {/* <Footer /> */}
       </div>
