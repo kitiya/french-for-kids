@@ -37,6 +37,14 @@ export default function CreateDialog({ categories, onCreate }) {
 
   const classes = useStyles();
 
+  const resetVocabState = () => {
+    setEn("");
+    setFr("");
+    setFeminine("");
+    setMasculine("");
+    setImageUrl("");
+    setCategory("");
+  };
   const handleToggle = () => {
     setOpen(!open);
   };
@@ -66,6 +74,7 @@ export default function CreateDialog({ categories, onCreate }) {
   const handleSubmit = () => {
     // TODO: validation
     const vocab = {
+      id: en.toLocaleLowerCase().replace(/ /g, "-"),
       en,
       fr,
       feminine,
@@ -74,7 +83,10 @@ export default function CreateDialog({ categories, onCreate }) {
       category
     };
     onCreate(vocab);
+    resetVocabState();
+    setOpen(false);
   };
+
   return (
     <>
       <Fab
@@ -136,7 +148,9 @@ export default function CreateDialog({ categories, onCreate }) {
                 onChange={handleCategoryChange}
               >
                 {categories.slice(1).map(category => (
-                  <MenuItem value={category}>{category}</MenuItem>
+                  <MenuItem key={category} value={category}>
+                    {category}
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>

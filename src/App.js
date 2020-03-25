@@ -16,13 +16,18 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const [categoryVocabs, setCategoryVocabs] = useState([]);
   const [vocabs, setVocabs] = useState([]);
   const [vocab, setVocab] = useState({});
   const [category, setCategory] = useState("all");
 
   useEffect(() => {
+    setVocabs(vocabDB);
+  }, []);
+
+  useEffect(() => {
     const getVocabsByCategories = () => {
-      const vocabsObject = vocabDB.reduce((vocabs, vocab) => {
+      const vocabsObject = vocabs.reduce((vocabs, vocab) => {
         const { category } = vocab;
 
         vocabs[category] = vocabs[category]
@@ -33,24 +38,22 @@ function App() {
       }, {});
 
       // using Object.entries() to convert object into array
-      setVocabs(Object.entries(vocabsObject));
+      setCategoryVocabs(Object.entries(vocabsObject));
     };
 
     getVocabsByCategories();
-  }, []);
+  }, [vocabs]);
 
   const handleCategorySelect = category => {
     setCategory(category);
   };
 
   const handleVocabSelect = id => {
-    setVocab(vocabDB.find(v => v.id === id));
+    setVocab(vocabs.find(v => v.id === id));
   };
 
   const handleVocabCreate = vocab => {
-    const newVocabs = [...vocabs, vocab];
-    console.log(newVocabs);
-    // setVocabs([...vocabs, vocab]);
+    setVocabs([...vocabs, vocab]);
   };
 
   return (
@@ -64,7 +67,7 @@ function App() {
         />
         <Vocabs
           category={category}
-          vocabs={vocabs}
+          vocabs={categoryVocabs}
           vocab={vocab}
           onVocabSelect={handleVocabSelect}
         />

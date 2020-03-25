@@ -39,7 +39,7 @@ export const vocabDB = [
     category: "animals"
   },
   {
-    id: "icecream",
+    id: "ice-cream",
     en: "ice cream",
     fr: "crème glacée",
     feminine: "",
