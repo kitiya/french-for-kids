@@ -1,9 +1,24 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
+const useStyles = makeStyles(theme => ({
+  tabs: {
+    [theme.breakpoints.down("xs")]: {
+      // justifyContent: "flex-start",
+      // background: "red"
+    },
+    [theme.breakpoints.up("sm")]: {
+      // justifyContent: "center",
+      // background: "yellow"
+    }
+  }
+}));
+
 export default ({ categories, category, onSelect }) => {
+  const classes = useStyles();
   const index =
     category === "all"
       ? 0
@@ -20,7 +35,9 @@ export default ({ categories, category, onSelect }) => {
         onChange={onIndexSelect}
         indicatorColor="primary"
         textColor="primary"
-        centered
+        className={classes.tabs}
+        variant="scrollable"
+        scrollButtons="auto"
       >
         {categories
           ? categories.map(category => <Tab key={category} label={category} />)

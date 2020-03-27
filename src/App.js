@@ -11,7 +11,8 @@ const theme = createMuiTheme({
     primary: { main: "#3F3D56" },
     secondary: { main: "#ff6584" },
     info: { main: "#6C63FF" },
-    success: { main: "#1765A3" }
+    success: { main: "#1765A3" },
+    kitiya: "#23ff34"
   }
 });
 
@@ -20,6 +21,7 @@ function App() {
   const [vocabs, setVocabs] = useState([]);
   const [vocab, setVocab] = useState({});
   const [category, setCategory] = useState("all");
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
     setVocabs(vocabDB);
@@ -27,6 +29,19 @@ function App() {
 
   useEffect(() => {
     const getVocabsByCategories = () => {
+      // initialCategoryVocabs = {animals:[], clothes:[], colors:[], ...}
+      const initialCategoryVocabs = categoryDB.reduce(
+        (combinedCategoryVocabs, category) => {
+          return category !== "all"
+            ? {
+                ...combinedCategoryVocabs,
+                [category]: []
+              }
+            : null;
+        },
+        {}
+      );
+
       const vocabsObject = vocabs.reduce((vocabs, vocab) => {
         const { category } = vocab;
 
@@ -35,7 +50,7 @@ function App() {
           : [vocab];
 
         return vocabs;
-      }, {});
+      }, initialCategoryVocabs);
 
       // using Object.entries() to convert object into array
       setCategoryVocabs(Object.entries(vocabsObject));
@@ -46,18 +61,42 @@ function App() {
 
   const handleCategorySelect = category => {
     setCategory(category);
+    if (category === "all" && !editMode) {
+      setVocab({});
+    }
   };
 
   const handleVocabSelect = id => {
     setVocab(vocabs.find(v => v.id === id));
+    setEditMode(false);
   };
 
   const handleVocabCreate = vocab => {
     setVocabs([...vocabs, vocab]);
   };
 
+  const handleVocabDelete = id => {
+    setVocabs(vocabs.filter(vocab => vocab.id !== id));
+    if (vocab.id === id) {
+      setVocab({});
+      setEditMode(false);
+    }
+  };
+
+  const handleVocabEdit = vocab => {
+    setVocabs([...vocabs.filter(v => v.id !== vocab.id), vocab]);
+    setVocab(vocab);
+    setEditMode(false);
+  };
+
+  const handleVocabEditSelect = id => {
+    setVocab(vocabs.find(vocab => vocab.id === id));
+    setEditMode(true);
+  };
+
   return (
     <MuiThemeProvider theme={theme}>
+      {console.log(theme)}
       <div>
         <Header categories={categoryDB} onVocabCreate={handleVocabCreate} />
         <CategoryMenu
@@ -66,12 +105,16 @@ function App() {
           onSelect={handleCategorySelect}
         />
         <Vocabs
+          categories={categoryDB}
           category={category}
-          vocabs={categoryVocabs}
+          categoryVocabs={categoryVocabs}
           vocab={vocab}
+          editMode={editMode}
           onVocabSelect={handleVocabSelect}
+          onVocabDelete={handleVocabDelete}
+          onVocabEdit={handleVocabEdit}
+          onVocabEditSelect={handleVocabEditSelect}
         />
-        {/* <Footer /> */}
       </div>
     </MuiThemeProvider>
   );

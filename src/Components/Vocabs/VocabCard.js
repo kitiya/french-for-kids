@@ -30,7 +30,11 @@ export default function VocabCard({ vocab }) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={vocab.imageUrl}
+          image={
+            vocab.imageUrl
+              ? vocab.imageUrl
+              : "https://cdn.pixabay.com/photo/2018/03/26/14/07/space-3262811_960_720.jpg"
+          }
           alt={vocab.en}
         />
         <CardContent>
