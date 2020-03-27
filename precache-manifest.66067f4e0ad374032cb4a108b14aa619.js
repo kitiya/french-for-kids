@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c1a151a73ba78220465e19c6bdd422ec",
+    "revision": "62715fd466b1fd2531733bd932bc2f08",
     "url": "/french-for-kids/index.html"
   },
   {
-    "revision": "1a3d96a490710b76d973",
+    "revision": "a4fad6cfae086e5e3697",
     "url": "/french-for-kids/static/css/main.685dea8f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/french-for-kids/static/js/2.b9c3bd2d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1a3d96a490710b76d973",
-    "url": "/french-for-kids/static/js/main.74a89dc5.chunk.js"
+    "revision": "a4fad6cfae086e5e3697",
+    "url": "/french-for-kids/static/js/main.0284c7ce.chunk.js"
   },
   {
     "revision": "3fbc0d6e827c3d5a1e12",
