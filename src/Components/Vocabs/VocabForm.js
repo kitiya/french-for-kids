@@ -27,8 +27,6 @@ const VocabForm = ({ vocab, categories, onSubmit, classes }) => {
     } else {
       resetVocabState();
     }
-
-    console.log("form vocab", vocab);
   }, [vocab]);
 
   const resetVocabState = () => {

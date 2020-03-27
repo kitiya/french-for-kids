@@ -11,8 +11,7 @@ const theme = createMuiTheme({
     primary: { main: "#3F3D56" },
     secondary: { main: "#ff6584" },
     info: { main: "#6C63FF" },
-    success: { main: "#1765A3" },
-    kitiya: "#23ff34"
+    success: { main: "#1765A3" }
   }
 });
 
@@ -96,7 +95,6 @@ function App() {
 
   return (
     <MuiThemeProvider theme={theme}>
-      {console.log(theme)}
       <div>
         <Header categories={categoryDB} onVocabCreate={handleVocabCreate} />
         <CategoryMenu

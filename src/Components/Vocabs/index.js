@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
       }
     },
     [theme.breakpoints.up("sm")]: {
-      maxHeight: "88vh"
+      height: "88vh"
     }
   },
   paper: {
@@ -107,7 +107,6 @@ export default ({
                       <ListItemText primary={vocab.en} />
                       <ListItemSecondaryAction>
                         <IconButton
-                          color="#ff00ff"
                           edge="end"
                           aria-label="edit"
                           onClick={() => onVocabEditSelect(vocab.id)}
